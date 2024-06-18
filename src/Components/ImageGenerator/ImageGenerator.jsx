@@ -16,7 +16,7 @@ const ImageGenerator = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                   Authorization: `Bearer ${process.env.REACT_APP_OPENAI_SECRET}`,
+                   Authorization: `Bearer $import.meta.env.REACT_APP_OPENAI_SECRET}`,
                     "User-Agent": "Chrome",
                 },
                 body: JSON.stringify({
