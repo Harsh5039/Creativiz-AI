@@ -10,13 +10,13 @@ const ImageGenerator = () => {
         if (inputRef.current.value === "") {
             return 0;
         }
-/*             const response = await fetch(
+            const response = await fetch(
             "https://api.openai.com/v1/images/generations",
             {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                   Authorization: "Bearer sk-proj-ZkNrdomWBqP6UU0YQff4T3BlbkFJvFS1RrPuJkv3PMGyRaWX",
+                   Authorization: `Bearer ${process.env.REACT_APP_OPENAI_SECRET}`,
                     "User-Agent": "Chrome",
                 },
                 body: JSON.stringify({
@@ -25,7 +25,7 @@ const ImageGenerator = () => {
                     size: "512x512",
                 }),
             }
-        );                                        */
+        );                                      
         let data = await response.json();
         // Check if data_array exists and has at least one element
         if (data && Array.isArray(data.data) && data.data.length > 0) {
