@@ -16,7 +16,7 @@ const ImageGenerator = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                   Authorization: `Bearer $import.meta.env.REACT_APP_OPENAI_SECRET}`,
+                   Authorization: `Bearer ${import.meta.env.REACT_APP_OPENAI_SECRET}`,
                     "User-Agent": "Chrome",
                 },
                 body: JSON.stringify({
@@ -27,13 +27,8 @@ const ImageGenerator = () => {
             }
         );                                      
         let data = await response.json();
-        // Check if data_array exists and has at least one element
-        if (data && Array.isArray(data.data) && data.data.length > 0) {
-            setImage_url(data.data[0].url);
-        } else {
-            // Handle the case where data is not in the expected format or is undefined
-            console.error('Data is undefined or not in the expected format:', data);
-        }
+        let data_array =data.data;
+        setImage_url(data_array[0].url);
     }
 
     return (
